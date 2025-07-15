@@ -38,6 +38,6 @@ jobs:
       - name: Run Test
         run: npm test 
 
-2. push changes in github -> use Token
+2. push changes in github -> use Token  
 
 ```
