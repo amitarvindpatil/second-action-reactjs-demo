@@ -41,3 +41,32 @@ jobs:
 2. push changes in github -> use Token  
 
 ```
+
+
+### Multiple Jobs and Deployment
+
+```
+1. create dir .github/workflows/deployment.yml
+
+name: Deploy Project
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Install Nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: Install Dependancies
+        run: npm ci
+      - name: Build Project 
+        run: npm run build
+      - name: Deploy
+        run: echo "deploying..."
+
+2. push changes in github -> use Token  
+
+```
