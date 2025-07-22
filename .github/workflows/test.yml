@@ -1,7 +1,7 @@
 name: Test Project
-on: push
+on: workflow_dispatch
 jobs:
-  test:
+  testcase:
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
