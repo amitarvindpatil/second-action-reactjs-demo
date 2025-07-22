@@ -128,4 +128,41 @@ Filters
 ---------------------------------------
 Push Event :-> Filter based on target Branch
 
+name: Event Demo
+on:  
+    # Activity Type Event
+    pull_request:
+        types:
+            - opened
+        branches:
+            - main
+            - 'dev-*'   # dev-new,dev-this-is-new are valid
+            - 'feat/**' # feat/new,feat/new/branch are valid
+    workflow_dispatch:
+    # Filter Type Event   
+    push:
+        branches:
+            - main
+            - 'dev-*'   # dev-new,dev-this-is-new are valid
+            - 'feat/**' # feat/new,feat/new/branch are valid
+        paths-ignore:
+            - '.github/workflows/*'
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Output Event Data
+              run: echo "${{ toJson(github.event)}}"
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: Install dependencies 
+              run: npm ci
+            - name: Test code
+              run : npm run test
+            - name: Build code
+              run: npm run build
+            - name: deploy project
+              run: echo "Deploying.."
+
+- push into main branch
 ```
