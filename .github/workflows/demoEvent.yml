@@ -9,14 +9,6 @@ on:
             - 'dev-*'   # dev-new,dev-this-is-new are valid
             - 'feat/**' # feat/new,feat/new/branch are valid
     workflow_dispatch:
-    # Filter Type Event   
-    push:
-        branches:
-            - main
-            - 'dev-*'   # dev-new,dev-this-is-new are valid
-            - 'feat/**' # feat/new,feat/new/branch are valid
-        paths-ignore:
-            - '.github/workflows/*'
 jobs:
     deploy:
         runs-on: ubuntu-latest
