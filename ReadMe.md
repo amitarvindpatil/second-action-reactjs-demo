@@ -118,7 +118,11 @@ jobs:
               run: echo "Deploying......"
 
 2. push changes in github -> use Token       
-
+3. git push - here see, after push the pipeline not trigger but we can mannually trigger the pipeline using workflow_dispatch
+4. now create feature branch from main
+5. git checkout -b dev
+6. make changes in code
+7. gut push and create pr and check action
 ---------------------------------------
 Filters
 ---------------------------------------
