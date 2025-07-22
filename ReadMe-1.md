@@ -21,20 +21,20 @@
 ```
 1. create dir .github/workflows/test.yml
 
-name: Test Project
-on: push
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
+name: Test Project    
+on: push     # trigger point of workflow
+jobs:        # jobs
+  test:      # job name 
+    runs-on: ubuntu-latest    # platform OS for run the pipeline
+    steps:                     # steps of executions
       - name: Get Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4     
       - name: Install Nodejs
-        uses: actions/setup-node@v4
-        with:
+        uses: actions/setup-node@v4   # uses used to select an action that is already defined and can be reused
+        with:               # with declare the configuration
           node-version: '20.x'
       - name: Install Dependancies
-        run: npm ci
+        run: npm ci               # use run the commands
       - name: Run Test
         run: npm test 
 
